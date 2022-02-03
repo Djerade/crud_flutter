@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -38,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   // This function is used to fetch all data from the database
   void _refreshJournals() async {
     final data = await SQLHelper.getItems();
+
     setState(() {
       _journals = data;
       _isLoading = false;
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                           const InputDecoration(hintText: 'Description'),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     ElevatedButton(
                       onPressed: () async {
